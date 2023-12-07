@@ -1,0 +1,141 @@
+:root {
+    --my-padding: 0.4rem;
+
+}
+
+* {
+    margin: 0;
+    padding: 0;
+    box-sizing: border-box;
+}
+
+.container {
+     color: white;
+     display: grid;
+     gap: 10px;
+     grid-template-columns: 1fr 1fr 1fr 1fr;
+     grid-template-rows: 1fr 1fr 1fr 1fr;
+     grid-template-areas: 
+     "nav nav nav nav"
+     "content1 content2 content3 sidebar"
+     "main main main sidebar"
+     "footer footer footer sidebar"
+     ;
+     height: 100vh;
+     text-align: center;
+     text-transform: uppercase;
+
+}
+
+nav {
+    background-color: aquamarine;
+    grid-area: nav ;
+    padding: var(--my-padding);
+}
+
+.nav-container {
+    align-items: center;
+    display: grid;
+    height: 100%;
+    grid-template-columns: repeat(4, 1fr);
+    grid-template-rows: 1fr;
+}
+
+.content1 {
+    align-items: center;
+    display: grid;
+    background-color: rgb(78, 31, 121);
+    grid-area: content1;
+    padding: var(--my-padding);
+}
+
+
+.content2 {
+    align-items: center;
+    display: grid;
+    background-color: rgb(209, 182, 63);
+    grid-area: content2;
+    padding: var(--my-padding);
+}
+
+.content3 {
+    align-items: center;
+    display: grid;
+    background-color: rgb(160, 41, 58);
+    grid-area: content3;
+    padding: var(--my-padding);
+}
+
+.sidebar {
+    align-items: center;
+    display: grid;
+    background-color: rgb(234, 192, 9);
+    grid-area: sidebar;
+    padding: var(--my-padding);
+}
+
+main {
+    align-items: center;
+    display: grid;
+    background-color: rgb(0, 241, 68);
+    grid-area: main;
+    padding: var(--my-padding);
+}
+
+footer {
+    align-items: center;
+    display: grid;
+    background-color: rgb(11, 185, 204);
+    grid-area: footer;
+    padding: var(--my-padding);
+}
+
+@media (max-width: 1024px) {   
+    .nav-container {
+        grid-template-columns: 1fr 1fr;
+        grid-template-rows: 1fr 1fr;
+    }
+
+    .container {
+        grid-template-columns: 1fr 1fr;
+        grid-template-rows: 1fr 1fr 1fr 1fr 1fr;
+        grid-template-areas: 
+        "nav nav"
+        "main main"
+        "content3 content2"
+        "content1 content1"
+        "footer footer"
+        ;
+    }
+
+    .sidebar {
+        display: none;
+    }
+}
+
+@media (max-width: 480px) {
+    .nav-container {
+        grid-template-columns:  1fr;
+        grid-template-rows: repeat(7, 1fr);
+    }
+    .sidebar {
+        display: block;
+    }
+    .content3 {
+        display: none;
+    }
+    .container {
+        gap: 0;
+        grid-template-columns: 1fr;
+        grid-template-rows: repeat(6, 1fr);
+        grid-template-areas: 
+        "nav"
+        "main"
+        "content1"
+        "content2"
+        "sidebar"
+        "footer"
+        ;
+    }
+
+}
